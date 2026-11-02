@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ซอยนี้มีแต่บิ๊ก (SOI BIG) | Khao Soi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Mitr:wght@400;500&family=Sarabun:wght@400;600&family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --broth:#FF8A1F;--pink:#FF6B8B;--lime:#B7E04A;--mint:#7FD8BE;--sun:#FFD84D;--brown:#4A2B1E;--beef:#6B3A28;
+  --bg:#FFF3CF;--ink:#4A2B1E;--muted:#7A5A48;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2A1730;--ink:#FFEFD6;--muted:#E5CDBB;}}
+:root[data-theme="dark"]{--bg:#2A1730;--ink:#FFEFD6;--muted:#E5CDBB;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 'Sarabun','Noto Sans SC',system-ui,sans-serif}
+:lang(zh) body,html[lang="zh"] body{font-family:'Noto Sans SC','Sarabun',sans-serif}
+h1,h2,h3,.btn,.lang button,.price{font-family:'Fredoka','Mitr',system-ui,sans-serif;font-weight:600;line-height:1.25;margin:0}
+html[lang="th"] h1,html[lang="th"] h2,html[lang="th"] h3,html[lang="th"] .btn,html[lang="th"] .price{font-family:'Mitr','Fredoka',sans-serif;font-weight:500}
+html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3,html[lang="zh"] .btn{font-family:'ZCOOL KuaiLe','Noto Sans SC',sans-serif;font-weight:400}
+:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
+.hero{position:relative;background:var(--broth) radial-gradient(circle,rgba(255,255,255,.22) 3px,transparent 4px) 0 0/34px 34px;color:#fff;padding:1rem clamp(1.2rem,6vw,5rem) 6rem;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.logo{font-family:'Mitr',sans-serif;font-size:1.3rem;background:#fff;color:var(--brown);padding:.3rem 1rem;border-radius:999px;transform:rotate(-2deg)}
+.lang{display:flex;gap:.4rem;background:rgba(255,255,255,.3);padding:.3rem;border-radius:999px}
+.lang button{border:0;background:transparent;color:#fff;padding:.35rem .9rem;border-radius:999px;cursor:pointer;font-size:1rem}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--brown)}
+.grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;margin-top:2rem}
+.tag{display:inline-block;background:var(--sun);color:var(--brown);padding:.2rem 1rem;border-radius:999px;font-weight:600;transform:rotate(-3deg)}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);margin:1rem 0;text-shadow:4px 4px 0 var(--pink)}
+.hero p{font-size:1.15rem;max-width:30em;margin:0 0 1.6rem}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--brown);color:#fff;text-decoration:none;padding:.8rem 1.7rem;border-radius:999px;font-size:1.1rem;box-shadow:0 5px 0 #25130b;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #25130b}
+.btn.pink{background:var(--pink);box-shadow:0 5px 0 #c63e5e}
+.btn.pink:active{box-shadow:0 1px 0 #c63e5e}
+.stage{position:relative;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.bowl{position:relative;width:min(78vw,420px);aspect-ratio:1;border-radius:50%;background:#fff;padding:6%;border:8px solid var(--pink);box-shadow:0 18px 0 rgba(0,0,0,.15);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(1.5deg)}}
+.soup{position:relative;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F08A2E,#C25E12);overflow:hidden;transition:background .5s}
+.bowl.sq .soup{background:radial-gradient(circle at 35% 30%,#E9B23A,#B8730F)}
+.noodle{position:absolute;border-radius:50%;border:12px dotted #FFD97A;inset:6% 40% 52% 8%;transform:rotate(-25deg)}
+.noodle.b{inset:48% 6% 8% 38%;transform:rotate(20deg)}
+.beef{position:absolute;width:15%;height:13%;background:var(--beef);border-radius:40% 60% 45% 55%}
+.face{position:absolute;inset:0}
+.eye{position:absolute;top:38%;width:9%;height:11%;background:var(--brown);border-radius:50%;transition:height .2s}
+.eye::after{content:"";position:absolute;top:18%;left:22%;width:30%;height:30%;background:#fff;border-radius:50%}
+.eye.l{left:30%}.eye.r{right:30%}
+.bowl.sq .eye{height:3%;top:42%}
+.bowl.sq .eye::after{display:none}
+.cheek{position:absolute;top:52%;width:11%;height:6%;background:var(--pink);opacity:.8;border-radius:50%}
+.cheek.l{left:22%}.cheek.r{right:22%}
+.mouth{position:absolute;left:44%;top:52%;width:12%;height:7%;border:4px solid var(--brown);border-top:0;border-radius:0 0 50px 50px;transition:all .2s}
+.bowl.sq .mouth{left:46%;width:8%;height:9%;border-top:4px solid var(--brown);border-radius:50%;background:var(--brown)}
+.herb{position:absolute;width:11%;height:11%;background:#3F9A3A;border-radius:50% 0 50% 0}
+.limebtn{position:absolute;right:-2%;bottom:6%;width:24%;aspect-ratio:1;border-radius:50%;border:6px solid #4E9A2E;background:radial-gradient(circle,#E9F7A0 0 16%,var(--lime) 17%);cursor:pointer;padding:0;box-shadow:0 5px 0 rgba(0,0,0,.2);transition:transform .25s}
+.limebtn:hover{transform:rotate(25deg) scale(1.08)}
+.steam{position:absolute;top:-14%;left:50%;display:flex;gap:18px;transform:translateX(-50%)}
+.steam i{width:14px;height:46px;border-radius:14px;background:rgba(255,255,255,.7);animation:rise 2.4s ease-in infinite}
+.steam i:nth-child(2){animation-delay:.6s;height:60px}.steam i:nth-child(3){animation-delay:1.2s}
+@keyframes rise{0%{opacity:0;transform:translateY(20px)}40%{opacity:1}100%{opacity:0;transform:translateY(-24px)}}
+.deco{position:absolute;font-size:2.2rem;pointer-events:none}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:70px;display:block}
+.wave path{fill:var(--bg)}
+section{padding:clamp(2.5rem,7vw,5rem) clamp(1.2rem,6vw,5rem)}
+section h2{font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:.5rem}
+.lead{color:var(--muted);margin:0 0 2rem;max-width:36em}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem}
+.item{color:var(--brown);border-radius:36px;padding:1.5rem;border:4px solid var(--brown);box-shadow:8px 8px 0 var(--brown);transition:transform .2s}
+.item:hover{transform:rotate(0deg) translateY(-6px)!important}
+.item:nth-child(1){background:var(--sun);transform:rotate(-2deg)}
+.item:nth-child(2){background:var(--mint);transform:rotate(1.5deg)}
+.item:nth-child(3){background:#FFB3C6;transform:rotate(-1deg)}
+.item:nth-child(4){background:var(--lime);transform:rotate(1.5deg)}
+.item:nth-child(5){background:#FFC48A;transform:rotate(-2deg)}
+.item .em{font-size:2.6rem;line-height:1}
+.item h3{font-size:1.4rem;margin:.4rem 0}
+.price{display:inline-block;background:#fff;border-radius:999px;padding:.1rem .9rem;font-size:1.3rem}
+.item p{margin:.7rem 0 0}
+.how{background:var(--mint);color:var(--brown)}
+.how .lead{color:var(--brown)}
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem}
+.steps li{counter-increment:s;background:#fff;border-radius:30px;padding:1.3rem 1.4rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--pink);color:#fff;font:600 1.3rem 'Fredoka',sans-serif;margin-bottom:.5rem}
+.steps h3{font-size:1.2rem;margin-bottom:.2rem}
+.visit{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
+.visit{gap:2.6rem 1.6rem;margin-top:2.2rem}
+.visit>div{position:relative;color:var(--brown);border:4px solid var(--brown);border-radius:32px;padding:2.2rem 1.5rem 1.4rem;box-shadow:7px 7px 0 var(--brown);transition:transform .2s}
+.visit>div:nth-child(1){background:var(--sun);transform:rotate(-1.5deg)}
+.visit>div:nth-child(2){background:#FFB3C6;transform:rotate(1deg)}
+.visit>div:nth-child(3){background:var(--lime);transform:rotate(-1deg)}
+.visit>div:hover{transform:rotate(0deg) translateY(-6px)}
+.visit .em{position:absolute;top:-1.9rem;left:1.3rem;display:grid;place-items:center;width:3.6rem;height:3.6rem;border-radius:50%;background:#fff;border:4px solid var(--brown);font-size:1.7rem;line-height:1;box-shadow:3px 3px 0 var(--brown)}
+.visit h3{font-size:1.2rem}
+.visit p{margin:.2rem 0 0;color:var(--brown)}
+.links{display:flex;flex-wrap:wrap;gap:1.2rem}
+.links a,.links .soon{display:flex;flex-direction:column;min-width:210px;padding:1rem 1.5rem;border-radius:28px;border:4px solid var(--brown);box-shadow:6px 6px 0 var(--brown);color:#fff;text-decoration:none;font:600 1.2rem 'Fredoka','Mitr',sans-serif;transition:transform .2s}
+.links a:hover{transform:translateY(-5px) rotate(-1.5deg)}
+.links small{font:400 .95rem 'Sarabun','Noto Sans SC',sans-serif;opacity:.95}
+.links .ig{background:linear-gradient(45deg,#FF8A1F,#FF4F81 60%,#B04FD8)}
+.links .fb{background:#3F7DF0}
+.links .soon{background:var(--brown);border-style:dashed;border-color:var(--mint);box-shadow:none;color:#FFE9CC}
+footer{background:var(--brown);color:#FFE9CC;text-align:center;padding:1.5rem;font-size:.9rem}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="top">
+    <span class="logo" data-i18n="logo">ซอยนี้มีแต่บิ๊ก (SOI BIG)</span>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-l="th">ไทย</button><button data-l="zh">中文</button><button data-l="en">EN</button>
+    </div>
+  </div>
+  <div class="grid">
+    <div>
+      <span class="tag" data-i18n="tag"></span>
+      <h1 data-i18n="h1"></h1>
+      <p data-i18n="desc"></p>
+      <a class="btn" href="#menu" data-i18n="cta"></a>
+    </div>
+    <div class="stage">
+      <span class="deco" style="top:0;left:4%">✨</span><span class="deco" style="top:10%;right:2%">🌶️</span><span class="deco" style="bottom:14%;left:0">🧅</span>
+      <div class="bowl" id="bowl">
+        <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="soup" aria-hidden="true">
+          <div class="noodle"></div><div class="noodle b"></div>
+          <div class="beef" style="top:12%;right:14%"></div><div class="beef" style="bottom:14%;left:18%"></div><div class="beef" style="bottom:22%;right:30%"></div>
+          <div class="herb" style="top:20%;left:46%"></div><div class="herb" style="bottom:8%;left:44%"></div>
+          <div class="face"><span class="eye l"></span><span class="eye r"></span><span class="cheek l"></span><span class="cheek r"></span><span class="mouth"></span></div>
+        </div>
+        <button class="limebtn" id="lime" tabindex="-1" aria-hidden="true"></button>
+      </div>
+      <button class="btn pink" id="sq" type="button" aria-pressed="false"></button>
+      <p id="hint" style="margin:0"></p>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 Q 75 0 150 35 T 300 35 T 450 35 T 600 35 T 750 35 T 900 35 T 1050 35 T 1200 35 V70 H0Z"/></svg>
+</header>
+
+<section id="menu">
+  <h2 data-i18n="menuT"></h2>
+  <p class="lead" data-i18n="menuL"></p>
+  <div class="menu">
+    <div class="item"><div class="em">🐮</div><h3 data-i18n="m1"></h3><span class="price">฿70</span><p data-i18n="m1d"></p></div>
+    <div class="item"><div class="em">🐥</div><h3 data-i18n="m2"></h3><span class="price">฿60</span><p data-i18n="m2d"></p></div>
+    <div class="item"><div class="em">🍅</div><h3 data-i18n="m3"></h3><span class="price">฿50</span><p data-i18n="m3d"></p></div>
+    <div class="item"><div class="em">🍜</div><h3 data-i18n="m4"></h3><span class="price">฿60</span><p data-i18n="m4d"></p></div>
+    <div class="item"><div class="em">🐷</div><h3 data-i18n="m5"></h3><span class="price">฿10</span><p data-i18n="m5d"></p></div>
+  </div>
+</section>
+
+<section class="how">
+  <h2 data-i18n="howT"></h2>
+  <p class="lead" data-i18n="howL"></p>
+  <ol class="steps">
+    <li><h3 data-i18n="s1"></h3><span data-i18n="s1d"></span></li>
+    <li><h3 data-i18n="s2"></h3><span data-i18n="s2d"></span></li>
+    <li><h3 data-i18n="s3"></h3><span data-i18n="s3d"></span></li>
+  </ol>
+</section>
+
+<section>
+  <h2 data-i18n="visT"></h2>
+  <div class="visit">
+    <div><div class="em">⏰</div><h3 data-i18n="v1"></h3><p data-i18n="v1d"></p></div>
+    <div><div class="em">📍</div><h3 data-i18n="v2"></h3><p data-i18n="v2d"></p></div>
+    <div><div class="em">🥡</div><h3 data-i18n="v3"></h3><p data-i18n="v3d"></p></div>
+  </div>
+</section>
+
+<section>
+  <h2 data-i18n="socT"></h2>
+  <div class="links">
+    <a class="ig" href="https://www.instagram.com/scottt_2003/" target="_blank" rel="noopener">Instagram<small>@scottt_2003</small></a>
+    <a class="fb" href="https://www.facebook.com/search/top?q=Mongkol%20Silapong" target="_blank" rel="noopener">Facebook<small>Mongkol Silapong</small></a>
+    <div class="soon">TikTok<small data-i18n="soon"></small></div>
+  </div>
+</section>
+
+
+
+<script>
+(function(){
+var T={
+th:{logo:"ซอยนี้มีแต่บิ๊ก (SOI BIG)",tag:"ข้าวซอยเชียงใหม่ ร้อนๆ หอมๆ",h1:"ข้าวซอยชามนี้<br>ยิ้มให้เธอ",desc:"น้ำแกงกะทิหอมเครื่องเทศ เส้นหมี่นุ่มโรยเส้นกรอบ เนื้อตุ๋นเปื่อยนุ่ม เสิร์ฟพร้อมผักกาดดอง หอมแดง และมะนาวสดๆ",cta:"ดูเมนูเลย",
+sqOn:"บีบมะนาวลงชาม",sqOff:"เอามะนาวออก",hintOn:"ลองบีบมะนาวดูสิ น้องจะทำหน้าเปรี้ยว",hintOff:"อุ๊ย เปรี้ยวจี๊ด!",
+menuT:"เมนูประจำร้าน",menuL:"ต้มน้ำแกงสดทุกเช้า หมดแล้วปิดร้านนะจ๊ะ",m1:"ข้าวซอยเนื้อ",m1d:"เนื้อตุ๋นติดกระดูก น้ำแกงเข้มข้น",m2:"ข้าวซอยไก่",m2d:"น่องไก่ตุ๋นนุ่ม รสกลมกล่อม",m3:"ข้าวซอยน้ำเงี้ยว",m3d:"เปรี้ยวนิดๆ ใส่ดอกงิ้วและมะเขือเทศ",m4:"ข้าวซอยแห้ง",m4d:"เส้นคลุกซอสแกงเข้มข้น ไม่มีน้ำซุปท่วมชาม โรยเส้นกรอบ",m5:"แคปหมู",m5d:"กรอบฟู กินคู่ข้าวซอย หรือบิใส่ชามก็อร่อย",
+howT:"วิธีกินให้อร่อย",howL:"เครื่องเคียงทุกอย่างมีหน้าที่ของมัน",s1:"คลุกเส้นกรอบ",s1d:"จิ้มเส้นกรอบลงน้ำแกงให้พอนิ่ม",s2:"ใส่ผักดองและหอมแดง",s2d:"ตัดความมัน ได้เปรี้ยวและกรอบ",s3:"ปรุงมะนาวกับพริกเผา",s3d:"ชิมก่อน แล้วเติมทีละนิด",
+socT:"ติดตามเรา",soon:"เร็วๆ นี้",visT:"แวะมาหาเรา",v1:"เวลาเปิด",v1d:"ทุกวัน 08:00–15:00 หยุดวันพุธ",v2:"ที่ตั้ง",v2d:"ซอยตัวอย่าง ตัวเมืองเชียงใหม่ (ที่อยู่สมมติ)",v3:"สั่งกลับบ้าน",v3d:"แยกน้ำแกงกับเส้นให้ เส้นกรอบไม่นิ่ม",
+foot:"ร้านสมมติ สร้างจากสีและบรรยากาศของรูปข้าวซอยที่แนบมา"},
+zh:{logo:"SOI BIG 巷子里全是大碗",tag:"清迈热腾腾咖喱面",h1:"这碗咖喱面<br>正对你微笑",desc:"椰奶咖喱汤底香气四溢,软面上撒满酥脆面条,配炖得软烂的牛肉、酸菜、红葱头和新鲜青柠。",cta:"看看菜单",
+sqOn:"挤青柠进碗里",sqOff:"把青柠拿出来",hintOn:"挤挤青柠看看,小碗会酸到皱脸",hintOff:"哎呀,好酸!",
+menuT:"招牌菜单",menuL:"每天早上现熬汤底,卖完就收摊哦。",m1:"牛肉咖喱面",m1d:"带骨炖牛肉,汤底浓郁",m2:"鸡肉咖喱面",m2d:"鸡腿炖得软嫩,味道圆润",m3:"北部酸辣面",m3d:"微酸清爽,加入番茄和木棉花",m4:"干拌咖喱面",m4d:"面条拌浓郁咖喱酱,不带汤,撒上酥脆面条",m5:"酥脆猪皮",m5d:"香脆蓬松,可单吃,也可捏碎放进面里",
+howT:"好吃的吃法",howL:"每样配菜都有自己的任务。",s1:"拌入酥脆面条",s1d:"用汤匙把酥面浸入汤里,泡到微软",s2:"加酸菜和红葱头",s2d:"解腻,又酸又脆",s3:"挤青柠、加辣椒酱",s3d:"先尝一口,再一点点加",
+socT:"关注我们",soon:"敬请期待",visT:"来找我们玩",v1:"营业时间",v1d:"每天 08:00–15:00,周三休息",v2:"地址",v2d:"清迈市区示例小巷(虚构地址)",v3:"外带",v3d:"汤和面分开装,酥面不会变软",
+foot:"虚构店铺,灵感来自所附咖喱面照片的色彩与氛围"},
+en:{logo:"SOI BIG",tag:"Chiang Mai khao soi, hot and fragrant",h1:"This bowl<br>is smiling at you",desc:"Spiced coconut curry broth, soft egg noodles under a crispy nest, slow-braised beef, pickled greens, shallots and a fresh lime.",cta:"See the menu",
+sqOn:"Squeeze the lime",sqOff:"Take the lime out",hintOn:"Squeeze the lime and watch the bowl react.",hintOff:"Whoa, so sour!",
+menuT:"Our bowls",menuL:"The broth is simmered fresh each morning. When it’s gone, we close.",m1:"Beef khao soi",m1d:"Bone-in braised beef, rich broth",m2:"Chicken khao soi",m2d:"Tender drumstick, mellow flavor",m3:"Nam ngiao noodles",m3d:"Lightly tangy, with tomato and cotton flower",m4:"Dry khao soi",m4d:"Noodles tossed in thick curry sauce, no soup, topped with crispy noodles",m5:"Pork rinds",m5d:"Light and crunchy. Snack on them or crumble into your bowl.",
+howT:"How to eat it",howL:"Every side on the plate has a job.",s1:"Dunk the crispy noodles",s1d:"Press them into the broth until just softened.",s2:"Add pickles and shallots",s2d:"They cut the richness with sour and crunch.",s3:"Season with lime and chili paste",s3d:"Taste first, then add a little at a time.",
+socT:"Follow us",soon:"Coming soon",visT:"Come visit",v1:"Hours",v1d:"Daily 08:00–15:00, closed Wednesdays",v2:"Location",v2d:"Sample alley, Chiang Mai old town (fictional address)",v3:"Takeaway",v3d:"Broth and noodles packed apart so the crisp stays crisp",
+foot:"A fictional shop, designed from the colors and mood of the attached khao soi photo."}};
+var lang='th',bowl=document.getElementById('bowl'),sq=document.getElementById('sq'),hint=document.getElementById('hint');
+try{var s=localStorage.getItem('lang');if(T[s])lang=s}catch(e){}
+function render(){
+  var d=T[lang];document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(function(n){n.innerHTML=d[n.dataset.i18n]});
+  document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===lang)});
+  var on=bowl.classList.contains('sq');
+  sq.textContent=on?d.sqOff:d.sqOn;sq.setAttribute('aria-pressed',on);hint.textContent=on?d.hintOff:d.hintOn;
+  document.title=d.logo+' | Khao Soi';
+}
+document.querySelectorAll('.lang button').forEach(function(b){b.onclick=function(){lang=b.dataset.l;try{localStorage.setItem('lang',lang)}catch(e){}render()}});
+function tog(){bowl.classList.toggle('sq');render()}
+sq.onclick=tog;document.getElementById('lime').onclick=tog;
+render();
+})();
+</script>
+</body>
+</html>
